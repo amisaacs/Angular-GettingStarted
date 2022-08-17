@@ -1,5 +1,12 @@
 <div class="card">
     <div class="card-header">
-        {{pageTitle}}
+        <!-- the following produces error: that productName is possibly undefined.
+         -->
+         <!-- {{pageTitle + ':' + product.productName}} -->
+         <!-- Solution: add ?(safe navigation operator) so that if the
+            value is null or undefined it doesn't try to read it. -->
+        {{pageTitle + ':' + product?.productName}}
+        <!-- could also use *ngIf='product' in the card-header div,
+        but then the header wouldn't show up -->
     </div>
 </div>
