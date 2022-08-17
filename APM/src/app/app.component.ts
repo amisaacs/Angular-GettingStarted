@@ -5,8 +5,9 @@ import { Component } from '@angular/core';
   template: `
 <!-- < Replace the directive pm-products with a link to pm-products
     <pm-products></pm-products>> -->
+    <a class='navbar-brand' routerLink="/welcome"><h1>{{pageTitle}}</h1></a>
     <nav class='navbar navbar-expand navbar-light bg-light'>
-      <a class='navbar-brand'><h1>{{pageTitle}}</h1></a>
+
       <ul class='nav nav-pills'>
         <!-- Long way to write out
         <li><a [routerLink]="['/welcome']">Home</a></li>

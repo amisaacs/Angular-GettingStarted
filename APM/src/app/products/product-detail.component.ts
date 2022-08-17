@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   //selector is only needed if nesting a component in
@@ -10,9 +11,11 @@ import { Component, OnInit } from '@angular/core';
 export class ProductDetailComponent implements OnInit {
   pageTitle: String = "Product Detail";
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.pageTitle +=`: ${id}`;
   }
 
 }
