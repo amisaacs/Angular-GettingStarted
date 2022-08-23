@@ -15,7 +15,8 @@ export class ProductDetailComponent implements OnInit {
   //two solutions:
   //product!:IProduct; //tells compiler will be defined later.
   product: IProduct | undefined; //is defined as undefined until defined as IProduct
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));

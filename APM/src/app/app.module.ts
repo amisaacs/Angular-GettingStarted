@@ -28,6 +28,7 @@ import { ProductDetailGuard } from './products/product-detail.guard';
     RouterModule.forRoot([
       {path: 'products', component: ProductListComponent},
       {path: 'products/:id', 
+      
               canActivate: [ProductDetailGuard],
               component: ProductDetailComponent},
       {path: 'welcome', component: WelcomeComponent},

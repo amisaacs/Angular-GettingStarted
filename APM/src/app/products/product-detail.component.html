@@ -5,14 +5,44 @@
          <!-- {{pageTitle + ':' + product.productName}} -->
          <!-- Solution: add ?(safe navigation operator) so that if the
             value is null or undefined it doesn't try to read it. -->
-        {{pageTitle + ':' + product?.productName}}
+        {{pageTitle + ': ' + product?.productName}}
         <!-- could also use *ngIf='product' in the card-header div,
         but then the header wouldn't show up -->
     </div>
+    <div class="card-body" *ngIf="product">
+    <!-- <div class="card-body"> -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4">Name:</div>
+                    <!-- this line doesn't compile because 'property may be undefined'
+                    putting the *ngif in the div with class "card-body" corrects this. -->
+                    <div class="col-md-8">{{product.productName}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">Code:</div>
+                    <div class="col-md-8">{{product.productCode|lowercase|convertToSpaces: '-'}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">Description:</div>
+                    <div class="col-md-8">{{product.description}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">Availability:</div>
+                    <div class="col-md-8">{{product.releaseDate}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">Price:</div>
+                    <div class="col-md-8">{{product.price|currency:'USD':'symbol': '1.2-2'}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="card-footer">
         <button class="btn btn-outline-secondary"
                 style="width:80px"
-                click="onBack()">
+                (click)="onBack()">
             <i class="fa fa-chevron-left"></i> Back    
         </button>
     </div>
